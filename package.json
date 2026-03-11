@@ -1,0 +1,39 @@
+{
+  "name": "emotional-intelligence",
+  "version": "1.0.0",
+  "description": "赋予 EasyClaw/OpenClaw Agent 情绪感知和成长能力",
+  "main": "SKILL.md",
+  "scripts": {
+    "test": "powershell -File ./tests/run-tests.ps1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mangooding/easyclaw-emotional-intelligence.git"
+  },
+  "keywords": [
+    "easyclaw",
+    "openclaw",
+    "emotion",
+    "personality",
+    "ai",
+    "agent",
+    "skill"
+  ],
+  "author": "EasyClaw Community",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/easyclaw/emotional-intelligence/issues"
+  },
+  "homepage": "https://github.com/easyclaw/emotional-intelligence#readme",
+  "engines": {
+    "easyclaw": ">=2.0.0",
+    "openclaw": ">=1.0.0"
+  },
+  "categories": ["personality", "productivity"],
+  "icon": "🦞",
+  "preview": "./docs/preview.gif",
+  "gallery": [
+    "./docs/screenshot1.png",
+    "./docs/screenshot2.png"
+  ]
+}

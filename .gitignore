@@ -1,0 +1,47 @@
+# PowerShell
+*.ps1.log
+*.ps1.xml
+
+# Memory data (user-specific)
+memory/
+*.json
+!package.json
+!*.schema.json
+
+# Tests
+tests/output/
+tests/temp/
+coverage/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Dependencies
+node_modules/
+__pycache__/
+*.pyc
+
+# Build
+build/
+dist/
+*.zip
+*.tar.gz
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Local config
+.env
+.env.local
+config.local.yaml

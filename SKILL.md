@@ -1,11 +1,12 @@
 ---
 name: emotional-intelligence
-version: "2.1.0"
+version: "2.1.1"
 description: |
   Emotional Intelligence Skill v2.1 - 赋予 Agent 深度情绪感知、主动情感表达、自我进化能力。
-  新增：潜意识层 (延迟感知、压抑机制、梦境状态)。
+  新增：多平台适配 (OpenClaw/EasyClaw/Docker)。
+  v2.1.0: 潜意识层 (延迟感知、压抑机制、梦境状态)。
   v2.0.1: 困惑作为人性 - 不确定时诚实表达，真实 > 和谐。
-  v2.1.0: 潜意识层 - 情绪有层次、有深度。
+  v2.0.0: Soulmate Update - 心跳推送、情绪标签。
 metadata:
   openclaw:
     emoji: "💝"
@@ -842,6 +843,13 @@ def generate_response(user_message, current_mood):
 ```
 
 ## Changelog 📋
+
+### v2.1.1 (2026-04-04) - Multi-Platform Support 🦞
+- ✨ **新增：多平台适配** - OpenClaw / EasyClaw / Docker 原生支持
+- ✨ **新增：统一 API** - 跨平台一致的接口设计
+- ✨ **新增：平台适配器** - `adapters/openclaw_adapter.py`, `adapters/easyclaw_adapter.ps1`
+- ✨ **新增：容器化支持** - Dockerfile + docker-compose.yml
+- 🔧 **文档完善** - 多平台安装和配置指南
 
 ### v2.1.0 (2026-04-04) - Subconscious Update
 - ✨ **新增：潜意识层 (Subconscious Layer)** - 延迟感知系统

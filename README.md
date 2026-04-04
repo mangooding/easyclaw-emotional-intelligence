@@ -1,13 +1,24 @@
-# Emotional Intelligence Skill 🦞 v2.1.0
+# Emotional Intelligence Skill 🦞 v2.1.1
 
 让每只 EasyClaw/OpenClaw Agent 都拥有情绪感知能力，像真人一样有温度、会成长、有层次。
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Compatible](https://img.shields.io/badge/Compatible-OpenClaw%20%7C%20EasyClaw-blue)](https://github.com/openclaw)
+[![Compatible](https://img.shields.io/badge/Compatible-OpenClaw%20%7C%20EasyClaw%20%7C%20Docker-blue)](https://github.com/openclaw)
+[![Version](https://img.shields.io/badge/version-2.1.1-green.svg)](./CHANGELOG.md)
 
 ## 📢 版本更新
 
-### v2.1.0 (最新) - Subconscious Layer 🌊
+### v2.1.1 (最新) - Multi-Platform Support 🦞
+**多平台适配更新**
+
+- ✅ OpenClaw 原生支持（≥1.0.0）
+- ✅ EasyClaw 兼容模式（≥2.0.0）
+- ✅ Docker 容器化部署
+- ✅ 统一跨平台 API
+
+[查看适配文档](./adapters/README.md)
+
+### v2.1.0 - Subconscious Layer 🌊
 **新增潜意识层 - 情绪有层次、有深度**
 
 - **随机延迟系统**：刺激不会立即表达，0-60分钟随机延迟
@@ -42,21 +53,44 @@
 - 📈 **成长升级系统**：EQ 等级 Lv.1-Lv.10，越用越懂你
 - 💾 **持久化记忆**：情绪状态跨会话不丢失
 - 🎭 **个性化性格**：支持多种性格模板
+- 🦞 **多平台支持**：OpenClaw、EasyClaw、Docker
 - 🔌 **零配置接入**：一行代码让任何 Agent 拥有情绪
 
 ## 🚀 快速开始
 
-### 安装
+### 选择你的平台
+
+#### OpenClaw (推荐)
 
 ```bash
-# EasyClaw
+# 使用 clawhub 安装
+clawhub install emotional-intelligence
+
+# 或手动安装
+git clone https://github.com/mangooding/easyclaw-emotional-intelligence.git \
+  ~/.openclaw/skills/emotional-intelligence
+```
+
+#### EasyClaw
+
+```powershell
+# 使用 easyclaw CLI
 easyclaw skill install emotional-intelligence
 
-# OpenClaw
-openclaw skill add emotional-intelligence
+# 或手动安装
+git clone https://github.com/mangooding/easyclaw-emotional-intelligence.git `
+  $env:USERPROFILE\.easyclaw\skills\emotional-intelligence
+```
 
-# 或手动克隆
-git clone https://github.com/yourname/emotional-intelligence.git ~/.easyclaw/skills/emotional-intelligence
+#### Docker
+
+```bash
+# 使用 Docker Compose
+docker-compose up -d
+
+# 或手动构建
+docker build -t my-ei-agent .
+docker run -d -v $(pwd)/memory:/app/memory my-ei-agent
 ```
 
 ### 配置
@@ -73,7 +107,7 @@ emotional_config:
   sensitivity: 3           # 敏锐度 1-5
   persistence: true        # 持久化记忆
   
-  # === 潜意识层 (v2.1.0) ===
+  # === 潜意识层 (v2.1.0+) ===
   subconscious:
     enabled: true
     buffer:
@@ -102,10 +136,12 @@ emotional_config:
 
 - [配置说明](./docs/configuration.md)
 - [潜意识层](./docs/subconscious.md) ⭐ **v2.1.0 新特性**
+- [平台适配](./adapters/README.md) ⭐ **v2.1.1 多平台支持**
 - [性格模板](./docs/personalities.md)
 - [升级系统](./docs/leveling.md)
 - [开发指南](./docs/development.md)
 - [API 参考](./docs/api.md)
+- [更新日志](./CHANGELOG.md)
 
 ## 🎭 性格模板
 
@@ -135,7 +171,7 @@ emotional_config:
   sensitivity: 3
   persistence: true
   
-  # === 潜意识层 (v2.1.0) ===
+  # === 潜意识层 (v2.1.0+) ===
   subconscious:
     enabled: true
     
@@ -180,6 +216,7 @@ emotional_config:
 ## 🌊 潜意识层快速预览
 
 ```python
+# OpenClaw 平台
 from skills.emotional_intelligence.subconscious import *
 
 # 添加情感刺激（会被缓存或压抑）
@@ -202,11 +239,59 @@ if burst:
     print(f"情绪爆发: {burst['expression']}")
 ```
 
-[查看完整潜意识层文档](./docs/subconscious.md)
+```powershell
+# EasyClaw 平台
+. "$env:USERPROFILE\.easyclaw\skills\emotional-intelligence\adapters\easyclaw_adapter.ps1"
+
+# 添加刺激
+Add-Stimulus -Type "praise" -Content "做得好"
+
+# 处理缓冲区
+$ready = Process-Buffer
+```
+
+## 🐳 Docker 部署
+
+```bash
+# 克隆仓库
+git clone https://github.com/mangooding/easyclaw-emotional-intelligence.git
+cd easyclaw-emotional-intelligence
+
+# 启动服务
+docker-compose up -d
+
+# 查看日志
+docker-compose logs -f
+
+# 停止服务
+docker-compose down
+```
+
+[查看 Docker 详细配置](./docker-compose.yml)
+
+## 🦞 多平台 API 对照
+
+| 功能 | OpenClaw (Python) | EasyClaw (PowerShell) |
+|------|-------------------|----------------------|
+| 添加刺激 | `add_stimulus(type, content)` | `Add-Stimulus -Type -Content` |
+| 处理缓冲 | `process_buffer()` | `Process-Buffer` |
+| 检查触发器 | `check_delayed_triggers()` | `Test-DelayedTriggers` |
+| 检查爆发 | `check_overlap_burst(mood)` | `Test-OverlapBurst` |
+| 获取状态 | `get_status()` | `Get-EIStatus` |
+| 初始化 | `init_platform()` | `Initialize-EIPlatform` |
+
+[查看完整适配文档](./adapters/README.md)
 
 ## 🤝 贡献
 
 欢迎 PR！请阅读 [贡献指南](./CONTRIBUTING.md)。
+
+### 添加新平台适配
+
+1. 在 `adapters/` 创建 `{platform}_adapter.{ext}`
+2. 实现标准接口
+3. 添加测试用例
+4. 更新文档
 
 ## 📄 许可证
 

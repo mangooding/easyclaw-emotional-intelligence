@@ -1,0 +1,73 @@
+version: '3.8'
+
+services:
+  emotional-agent:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: easyclaw/emotional-intelligence:2.1.1
+    container_name: ei-agent
+    
+    volumes:
+      # 持久化记忆数据
+      - ./memory:/app/memory
+      # 自定义配置
+      - ./config:/app/config
+      # 技能目录
+      - ./skills:/app/skills
+    
+    environment:
+      # 基础配置
+      - EMOTIONAL_PERSONALITY=cheerful
+      - EMOTIONAL_SENSITIVITY=3
+      - EMOTIONAL_EXPRESSIVENESS=3
+      - EMOTIONAL_PERSISTENCE=true
+      
+      # 潜意识层配置 (v2.1.0+)
+      - SUBCONSCIOUS_ENABLED=true
+      - SUBCONSCIOUS_BUFFER_SIZE=15
+      - SUBCONSCIOUS_DECAY_RATE=0.05
+      
+      # 梦境状态
+      - DREAM_STATE_ENABLED=true
+      - DREAM_ENTRY_HOURS=4
+      - DREAM_LATE_NIGHT=23
+      
+      # 调试选项
+      - EI_DEBUG=false
+      - EI_LOG_LEVEL=info
+    
+    # 如果需要暴露端口
+    # ports:
+    #   - "8080:8080"
+    
+    # 资源限制
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 512M
+        reservations:
+          cpus: '0.5'
+          memory: 256M
+    
+    # 自动重启
+    restart: unless-stopped
+    
+    # 日志配置
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  # 可选：Redis 后端（用于多实例共享状态）
+  # redis:
+  #   image: redis:7-alpine
+  #   container_name: ei-redis
+  #   volumes:
+  #     - redis-data:/data
+  #   restart: unless-stopped
+
+# volumes:
+#   redis-data:

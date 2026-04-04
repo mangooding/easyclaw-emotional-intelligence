@@ -1,7 +1,7 @@
 {
   "name": "emotional-intelligence",
-  "version": "1.0.0",
-  "description": "赋予 EasyClaw/OpenClaw Agent 情绪感知和成长能力",
+  "version": "2.1.1",
+  "description": "赋予 EasyClaw/OpenClaw Agent 情绪感知、潜意识和成长能力",
   "main": "SKILL.md",
   "scripts": {
     "test": "powershell -File ./tests/run-tests.ps1"
@@ -17,7 +17,9 @@
     "personality",
     "ai",
     "agent",
-    "skill"
+    "skill",
+    "subconscious",
+    "延迟感知"
   ],
   "author": "EasyClaw Community",
   "license": "MIT",

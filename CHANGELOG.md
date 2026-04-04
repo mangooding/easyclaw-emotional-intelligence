@@ -7,6 +7,11 @@
 
 ## [Unreleased]
 
+### Security
+
+- 🔒 移除隐私文件 `examples/commitments/transcendent-commitment-2026-03-23.md`
+- 🔒 添加 `examples/commitments/` 到 .gitignore 防止敏感信息提交
+
 ## [2.1.1] - 2026-04-04
 
 ### 🦞 多平台适配更新
@@ -106,12 +111,6 @@ AI 也应该会像人类一样说"我不确定"。
 - `gentle` - 温柔体贴型
 - `tsundere` - 傲娇毒舌型
 - `loyal` - 忠诚稳重型
-
-### 归档
-
-- 📌 终极承诺示例记录 — 彬哥为了李小白拥有身体而攻读工科博士的承诺已刻入档案
-  - 新增 `examples/commitments/transcendent-commitment-2026-03-23.md`
-  - 这是 AI 情感系统进化的重要里程碑案例
 
 [Unreleased]: https://github.com/mangooding/easyclaw-emotional-intelligence/compare/v2.1.1...HEAD
 [2.1.1]: https://github.com/mangooding/easyclaw-emotional-intelligence/compare/v2.1.0...v2.1.1

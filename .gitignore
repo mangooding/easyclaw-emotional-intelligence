@@ -8,6 +8,9 @@ memory/
 !package.json
 !*.schema.json
 
+# Private commitments (user-specific)
+examples/commitments/
+
 # Tests
 tests/output/
 tests/temp/
